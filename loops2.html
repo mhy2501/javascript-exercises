@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+    <style>
+        
+        .column {
+          float: left;
+          width: 30%;
+          padding: 10px;
+          height: 250px; 
+          border:2px solid;
+          margin: 20px;
+         font-size: 30px;
+        }
+       
+    </style>
+</head>
+<body>
+  <div id="grocery"></div>
+
+<script>
+    const result = document.getElementById("grocery");
+    let groceryList = {
+        'Meats': ['Fish', 'Chicken', 'Pork','Beef'],
+        'Soaps and Shampoos': ['Head n Shoulders', 'Safeguard', 'Dove', 'Rejoice'],
+        'Vegetables': ['Carrots', 'Petchay', 'Talong', 'Sitaw'],
+        'Canned goods': ['Corned beef', 'Sardines', 'Spam', 'Beef loaf']
+        };
+
+   
+        let stringHTML = "";
+        for (let key in groceryList) {
+        stringHTML += `
+        <div class="column">
+        <p>${key}</p>`
+    
+        for (let value of groceryList[key]) {
+        stringHTML += `
+        <input type="checkbox" name="${value}"checked>
+        <label for="${value}">${value}</label>
+        <br>
+        `;
+        }
+        stringHTML += `</div>`
+        }
+        result.innerHTML = stringHTML;
+       </script>
+    </body>
+</html>
